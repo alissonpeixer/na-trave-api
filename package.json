@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Alisson PEixer",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "run": "node server.js"
+  },
+  "dependencies": {
+    "@koa/cors": "^3.3.0",
+    "@koa/router": "^12.0.0",
+    "@prisma/client": "^4.1.1",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "prisma": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
