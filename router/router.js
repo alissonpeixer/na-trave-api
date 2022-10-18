@@ -1,49 +1,31 @@
 import Router from "@koa/router";
-import { PrismaClient } from '@prisma/client';
+import  * as users  from '../app/users/index.js'
+import  * as hunches  from '../app/hunches/index.js'
 
 
-const prisma = new PrismaClient();
 export const router = new Router();
 
 
-const dataBase = []
-
-router.post("/", async ctx =>{
-  const reqBody = ctx.request.body;
-  const user = await prisma.tarefa.create({
-    data: { 
-      username: "alisson",
-      tarefaId: reqBody.tarefaID,
-      tarefa: reqBody.tarefa,
-      data: reqBody.data
-     },
-  })
-
-  ctx.body = user
-})
+router.post( "/signup", users.created )
 
 
+router.get( "/signin", users.login );
 
 
+router.post('/hunches', hunches.created );
 
-router.get("/", async ctx =>{
-  const posts = await prisma.Tarefa.findMany({
-    where: {username: "alisson"}
-  })
 
-  
-  ctx.body = posts
-})
+router.get('/games', hunches.getGames );
+router.get('/hunches', hunches.getHunches );
+
+router.get('/users/:username', hunches.list );
+router.get('/users', users.listUser );
+
+router.get('/u/auth', users.authVerification );
+
+
+router.patch('/hunches/like', hunches.like );
+router.delete('/hunches/removed', hunches.removed );
 
 
 
-router.post("/remove", async ctx =>{  
-  const delTarefa = await prisma.tarefa.delete({
-    where: {
-      tarefaId: ctx.request.body.tarefaId
-    }
-  })
-  
-  
-  ctx.body = delTarefa
-})
