@@ -1,12 +1,12 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "author": "Alisson PEixer",
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "run": "node server.js"
+    "run": "node api/index.js"
   },
   "prisma": {
     "seed": "node prisma/seed.js"

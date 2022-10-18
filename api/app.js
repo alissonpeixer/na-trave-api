@@ -1,7 +1,7 @@
 import Koa from "koa";
 import cors from "@koa/cors";
 import bodyParser from "koa-bodyparser";
-import {router} from "../router/router.js";
+import {router} from "./router.js";
 import { PrismaClient } from "@prisma/client";
 
 

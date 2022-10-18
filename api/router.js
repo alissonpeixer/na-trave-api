@@ -5,6 +5,9 @@ import  * as hunches  from './hunches/index.js'
 
 export const router = new Router();
 
+router.get('/', ctx =>{
+    return ctx.body = 'SERVER ON!'
+})
 
 router.post( "/signup", users.created )
 
