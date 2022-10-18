@@ -1,6 +1,6 @@
 import Router from "@koa/router";
-import  * as users  from '../app/users/index.js'
-import  * as hunches  from '../app/hunches/index.js'
+import  * as users  from './users/index.js'
+import  * as hunches  from './hunches/index.js'
 
 
 export const router = new Router();
