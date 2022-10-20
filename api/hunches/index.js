@@ -21,6 +21,26 @@ export const created = async (ctx) =>{
       return
     }
 
+
+
+  }
+
+
+
+  if(homeTeamScore >= 30 || homeTeamScore <= -1 ){
+    console.log('PLACAR ERROR')
+    ctx.status = 400
+    ctx.body = 'Placar invalido para o time da casa!'
+
+    return
+  }
+
+  if(awayTeamScore >= 30 || awayTeamScore <= -1 ){
+    console.log('PLACAR ERROR')
+    ctx.status = 400
+    ctx.body = 'Placar invalido para o time visitante!'
+
+    return
   }
 
 
