@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "run": "node api/index.js"
+    "nodemon": "nodemon api/index.js"
   },
   "prisma": {
     "seed": "node prisma/seed.js"

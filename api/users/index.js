@@ -58,19 +58,16 @@ export const login = async (ctx) => {
     return;
   }
 
-
-
   const password = await bcrypt.compare(plainTextPassword, user.password )
 
   console.log(password)
   if (password) {
-    const acessToken = CretedJwtToken(user);
 
     ctx.body = {
       id: user.id,
       name: user.name,
       username: user.username,
-      acessToken,
+      acessToken:  CretedJwtToken(user),
     };
     return;
   }
@@ -83,19 +80,19 @@ export const login = async (ctx) => {
 };
 
 export const authVerification = async (ctx) => {
-  const [, token]= ctx.request.header.azuthorization.split(' ');
+
+  const [, token]= ctx.request.header.auth.split(' ');
+
 
   try {
-
-
     const decoded = VerifyJwtToken(token)
-
 
     ctx.body = {
       valid: true,
       name: decoded.data.name,
       username: decoded.data.username,
-      id: decoded.data.id
+      id: decoded.data.id,
+      acessToken: decoded.data.acessToken
     }
 
   } catch (error) {
